@@ -1,10 +1,6 @@
 {
-    // package name
     "name": "rayn2k/yii2-rzhelper",
-
-    // package type
     "type": "yii2-extension",
-
     "description": "Helper classes for RZ components",
     "keywords": ["yii2", "helper"],
     "license": "BSD-3-Clause",
@@ -20,13 +16,9 @@
             "email": "raynzi1@yahoo.de"
         }
     ],
-
-    // package dependencies
     "require": {
         "yiisoft/yii2": "~2.0.0"
     },
-
-    // class autoloading specs
     "autoload": {
         "psr-4": {
             "yii\\rzhelper\\": ""
