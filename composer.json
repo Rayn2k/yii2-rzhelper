@@ -18,7 +18,7 @@
     ],
     "autoload" : {
 		"psr-4" : {
-			"rayn2k\\rzhelper\\src\\" : ""
+			"rayn2k\\rzhelper\\" : ""
 		}
 	},
     "require": {
