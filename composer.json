@@ -16,6 +16,11 @@
             "email": "raynzi1@yahoo.de"
         }
     ],
+    "autoload" : {
+		"psr-4" : {
+			"rayn2k\rzhelper\" : ""
+		}
+	},
     "require": {
         "yiisoft/yii2": "~2.0.0"
     }
