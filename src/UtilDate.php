@@ -1,5 +1,5 @@
 <?php
-namespace app\rzcomponents;
+namespace rayn2k\rzhelper;
 use Yii;
 
 class UtilDate
@@ -41,7 +41,7 @@ class UtilDate
     /**
      * get the datetime representation of a given long timestamp
      *
-     * @param long $timestamp            
+     * @param long $timestamp
      * @return DateTime
      */
     public static function get_utc_datetime_from_long($timestamp)
@@ -52,7 +52,7 @@ class UtilDate
     /**
      * set a given DateTime object to timezone UTC
      *
-     * @param DateTime $datetime_local            
+     * @param DateTime $datetime_local
      * @return DateTime
      */
     public static function set_to_timezone_utc(\DateTime $datetime_timezone)
@@ -63,7 +63,7 @@ class UtilDate
     /**
      * set a given DateTime object to timezone from server default
      *
-     * @param DateTime $datetime_local            
+     * @param DateTime $datetime_local
      * @return DateTime
      */
     public static function set_to_timezone_server_default(\DateTime $datetime_timezone)
@@ -74,7 +74,7 @@ class UtilDate
     /**
      * set a given DateTime object to german timezone
      *
-     * @param DateTime $datetime_local            
+     * @param DateTime $datetime_local
      * @return DateTime
      */
     public static function set_to_timezone_germany(\DateTime $datetime_timezone)
@@ -85,7 +85,7 @@ class UtilDate
     /**
      * get the sql string representation of a given datetime object
      *
-     * @param DateTime $datetime            
+     * @param DateTime $datetime
      * @return string|NULL
      */
     public static function datetime_to_sqlstring(\DateTime $datetime)
@@ -96,7 +96,7 @@ class UtilDate
     /**
      * set to utc timezone and get the sql string representation of a given datetime object
      *
-     * @param DateTime $datetime            
+     * @param DateTime $datetime
      * @return string|NULL
      */
     public static function datetime_to_sqlstring_utc(\DateTime $datetime)
@@ -107,7 +107,7 @@ class UtilDate
     /**
      * get the LONG representation of a given datetime object
      *
-     * @param DateTime $datetime            
+     * @param DateTime $datetime
      * @return long
      */
     public static function datetime_to_long(\DateTime $datetime)
@@ -118,7 +118,7 @@ class UtilDate
     /**
      * get the datetime object in utc by a given sql string representation
      *
-     * @param string $datetime            
+     * @param string $datetime
      * @return DateTime
      */
     public static function sqlstring_to_datetime_utc($datetime_sql_string)
@@ -129,7 +129,7 @@ class UtilDate
     /**
      * get the datetime object in the server default timezone by a given sql string representation
      *
-     * @param string $datetime            
+     * @param string $datetime
      * @return DateTime
      */
     public static function sqlstring_to_datetime_serverdefault($datetime_sql_string)
@@ -141,7 +141,7 @@ class UtilDate
      * get the name of the day
      *
      *
-     * @param string $datetime            
+     * @param string $datetime
      * @return DateTime
      */
     public static function get_day_name(\DateTime $dateTime)
@@ -166,7 +166,7 @@ class UtilDate
      * get the name of the day in only a few letters
      *
      *
-     * @param string $datetime            
+     * @param string $datetime
      * @return DateTime
      */
     public static function get_day_name_short(\DateTime $dateTime)
@@ -190,7 +190,7 @@ class UtilDate
     /**
      * get the german representation of a date
      *
-     * @param string $datetime            
+     * @param string $datetime
      * @return String
      */
     public static function get_formatted_date_german(\DateTime $dateTime)
@@ -201,7 +201,7 @@ class UtilDate
     /**
      * get the german representation of a time
      *
-     * @param string $datetime            
+     * @param string $datetime
      * @return String
      */
     public static function get_formatted_time_german(\DateTime $dateTime)

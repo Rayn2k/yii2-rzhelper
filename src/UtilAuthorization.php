@@ -1,5 +1,5 @@
 <?php
-namespace app\rzcomponents;
+namespace rayn2k\rzhelper;
 
 /**
  * helper class for all issues regarding authorization

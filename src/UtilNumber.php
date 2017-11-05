@@ -1,5 +1,5 @@
 <?php
-namespace app\rzcomponents;
+namespace rayn2k\rzhelper;
 use yii\helpers\Html;
 
 /**
@@ -13,7 +13,7 @@ class UtilNumber
     /**
      * get representation of a value with currency
      *
-     * @param $value $id            
+     * @param $value $id
      * @return string
      */
     public static function get_money_value($value)
@@ -50,7 +50,7 @@ class UtilNumber
     /**
      * get representation of a value with 2 digits
      *
-     * @param $value $id            
+     * @param $value $id
      * @return string
      */
     public static function get_quantity_value($value)

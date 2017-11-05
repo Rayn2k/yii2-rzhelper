@@ -1,5 +1,5 @@
 <?php
-namespace app\rzcomponents;
+namespace rayn2k\rzhelper;
 
 /**
  * helper class for file related issues
@@ -40,7 +40,7 @@ class UtilFile
 
     /**
      *
-     * @param String $filepath            
+     * @param String $filepath
      * @param String $period
      *            e.g. 'P820DT11H24M'
      * @return boolean
@@ -61,7 +61,7 @@ class UtilFile
 
     /**
      *
-     * @param String $filepath            
+     * @param String $filepath
      * @param String $timestamp
      *            long UNIX timestamp
      * @return boolean

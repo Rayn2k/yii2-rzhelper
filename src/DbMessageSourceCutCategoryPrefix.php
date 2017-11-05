@@ -4,7 +4,7 @@
  * E.g. the webvimark module adds the 'modules/user-management/' prefix to each message category.
  * Only changes are the prefix cut for 'category' at the beginning of all 3 protected methods 
  */
-namespace app\rzcomponents;
+namespace rayn2k\rzhelper;
 use yii\i18n\DbMessageSource;
 
 class DbMessageSourceCutCategoryPrefix extends DbMessageSource

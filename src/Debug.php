@@ -1,5 +1,5 @@
 <?php
-namespace app\rzcomponents;
+namespace rayn2k\rzhelper;
 use yii\helpers\BaseVarDumper;
 
 /**
@@ -62,7 +62,7 @@ class Debug
         );
         
         foreach ($maps as $function => $pattern) {
-            $output = preg_replace_callback($pattern, 
+            $output = preg_replace_callback($pattern,
                     array(
                             'self',
                             '_process' . ucfirst($function)

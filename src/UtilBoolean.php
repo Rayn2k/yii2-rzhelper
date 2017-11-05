@@ -1,5 +1,5 @@
 <?php
-namespace app\rzcomponents;
+namespace rayn2k\rzhelper;
 use Yii;
 
 /**
@@ -13,7 +13,7 @@ class UtilBoolean
     /**
      * get localized representation of a boolean true or false value
      *
-     * @param boolean|int $bool_value            
+     * @param boolean|int $bool_value
      * @return string
      */
     public static function get_bool_localized_string($bool_value)
@@ -33,7 +33,7 @@ class UtilBoolean
     /**
      * get glyphicon representation as checkmark or cross of a boolean true or false value
      *
-     * @param boolean|int $bool_value            
+     * @param boolean|int $bool_value
      * @return string
      */
     public static function get_bool_glyphicon($bool_value)

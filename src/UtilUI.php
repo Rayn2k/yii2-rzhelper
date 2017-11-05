@@ -1,5 +1,5 @@
 <?php
-namespace app\rzcomponents;
+namespace rayn2k\rzhelper;
 use Yii;
 use dosamigos\datepicker\DateRangePicker;
 use trntv\yii\datetime\DateTimeWidget;
@@ -17,7 +17,7 @@ class UtilUI
 
     public static function getDateTimePicker($form, $model, $attribute)
     {
-        return $form->field($model, $attribute)->widget(DateTimeWidget::className(), 
+        return $form->field($model, $attribute)->widget(DateTimeWidget::className(),
                 [
                         'phpDatetimeFormat' => 'yyyy-MM-dd HH:mm:ss',
                         'momentDatetimeFormat' => 'YYYY-MM-DD HH:mm:ss',
@@ -36,16 +36,16 @@ class UtilUI
 
     /**
      *
-     * @param ActiveForm $form            
-     * @param SalesDateSelectForm $model            
-     * @param string $attributeFrom            
-     * @param string $attributeTo            
+     * @param ActiveForm $form
+     * @param SalesDateSelectForm $model
+     * @param string $attributeFrom
+     * @param string $attributeTo
      */
     public static function getDateRangePicker($form, $model, $attributeFrom, $attributeTo)
     {
         return $form->field($model, $attributeFrom)
             ->label(false)
-            ->widget(DateRangePicker::className(), 
+            ->widget(DateRangePicker::className(),
                 [
                         'attributeTo' => $attributeTo,
                         'labelTo' => Yii::t('app', 'to'),
@@ -61,7 +61,7 @@ class UtilUI
 
     public static function getBooleanSelectDropDown($form, $model, $attribute)
     {
-        return $form->field($model, $attribute)->widget('dosamigos\formhelpers\Select', 
+        return $form->field($model, $attribute)->widget('dosamigos\formhelpers\Select',
                 [
                         'items' => UtilSelect::getBooleanNames()
                 ]);
@@ -69,7 +69,7 @@ class UtilUI
 
     public static function getYesNoSelectDropDown($form, $model, $attribute)
     {
-        return $form->field($model, $attribute)->widget('dosamigos\formhelpers\Select', 
+        return $form->field($model, $attribute)->widget('dosamigos\formhelpers\Select',
                 [
                         'items' => UtilSelect::getYesNoNames()
                 ]);
@@ -77,7 +77,7 @@ class UtilUI
 
     public static function getButtonDiv($content)
     {
-        return Html::tag('div', $content, 
+        return Html::tag('div', $content,
                 [
                         'class' => [
                                 'padding-5-px',

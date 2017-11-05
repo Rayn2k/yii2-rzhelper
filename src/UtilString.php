@@ -1,5 +1,5 @@
 <?php
-namespace app\rzcomponents;
+namespace rayn2k\rzhelper;
 use yii\helpers\StringHelper;
 
 /**
@@ -13,8 +13,8 @@ class UtilString extends StringHelper
     /**
      * remove the given prefix from the string
      *
-     * @param string $string            
-     * @param string $prefix            
+     * @param string $string
+     * @param string $prefix
      * @return string
      */
     public static function get_string_without_prefix($string, $prefix)
@@ -33,8 +33,8 @@ class UtilString extends StringHelper
     /**
      * remove the given suffix from the string
      *
-     * @param string $string            
-     * @param string $prefix            
+     * @param string $string
+     * @param string $prefix
      * @return string
      */
     public static function get_string_without_suffix($string, $suffix)
@@ -53,8 +53,8 @@ class UtilString extends StringHelper
     /**
      * Return the substring until the last position of a needle.
      *
-     * @param string $string            
-     * @param string $needle            
+     * @param string $string
+     * @param string $needle
      * @return string
      */
     public static function get_string_until_last_position_of_needle($string, $needle)
@@ -71,8 +71,8 @@ class UtilString extends StringHelper
     /**
      * Return the substring from the last position of a needle.
      *
-     * @param string $string            
-     * @param string $needle            
+     * @param string $string
+     * @param string $needle
      * @return string
      */
     public static function get_string_from_last_position_of_needle($string, $needle)
@@ -89,8 +89,8 @@ class UtilString extends StringHelper
     /**
      * get the string, which is bordered between 2 delimiters
      *
-     * @param string $delimiter1            
-     * @param string $delimiter2            
+     * @param string $delimiter1
+     * @param string $delimiter2
      * @return string
      */
     public static function get_string_between_delimiters($text, $delimiter1, $delimiter2, $show = false)
@@ -106,8 +106,8 @@ class UtilString extends StringHelper
     /**
      * search backwards starting from haystack length characters from the end
      *
-     * @param string $haystack            
-     * @param string $needle            
+     * @param string $haystack
+     * @param string $needle
      * @return boolean
      */
     public static function starts_with($haystack, $needle)
@@ -118,8 +118,8 @@ class UtilString extends StringHelper
     /**
      * search forward starting from end minus needle length characters
      *
-     * @param string $haystack            
-     * @param string $needle            
+     * @param string $haystack
+     * @param string $needle
      * @return boolean
      */
     public static function ends_with($haystack, $needle)
@@ -132,8 +132,8 @@ class UtilString extends StringHelper
      *
      * split text and remove whitespaces
      *
-     * @param string $text            
-     * @param string $delimiter            
+     * @param string $text
+     * @param string $delimiter
      */
     public static function split($text, $delimiter)
     {
@@ -167,7 +167,7 @@ class UtilString extends StringHelper
     /**
      * wrapper for uc words
      *
-     * @param string $text            
+     * @param string $text
      */
     public static function uppercase_all_words($text)
     {
@@ -177,7 +177,7 @@ class UtilString extends StringHelper
     /**
      * wrapper for strtolower
      *
-     * @param string $text            
+     * @param string $text
      */
     public static function lowercase_all($text)
     {
@@ -187,7 +187,7 @@ class UtilString extends StringHelper
     /**
      * remove all special chars and whitespaces from a string
      *
-     * @param string $string            
+     * @param string $string
      * @return string
      */
     public static function get_string_without_special_chars($string)
@@ -202,7 +202,7 @@ class UtilString extends StringHelper
     /**
      * replace all whitespaces from a string with underscores
      *
-     * @param string $string            
+     * @param string $string
      * @return string
      */
     public static function get_string_without_white_spaces($string)
@@ -215,9 +215,9 @@ class UtilString extends StringHelper
      * respective position.
      * E.g. haystack AAA, needle B, position 2 will return AABA.
      *
-     * @param string $haystack            
-     * @param string $needle            
-     * @param int $position            
+     * @param string $haystack
+     * @param string $needle
+     * @param int $position
      * @return string
      */
     public static function insert_string_at_position($haystack, $needle, $position)
@@ -229,8 +229,8 @@ class UtilString extends StringHelper
      * checks, whether both given strings are the same without distinction of
      * case sensitive letters
      *
-     * @param string $text1            
-     * @param string $text2            
+     * @param string $text1
+     * @param string $text2
      * @return boolean
      */
     public static function equals_ignore_case($text1, $text2)
@@ -241,7 +241,7 @@ class UtilString extends StringHelper
     /**
      * checks, whether a given string is empty
      *
-     * @param string $text            
+     * @param string $text
      * @return boolean
      */
     public static function is_empty($text)
