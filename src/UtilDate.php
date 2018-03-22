@@ -50,6 +50,18 @@ class UtilDate
     }
 
     /**
+     * Convert a german formatted date to a datetime object
+     *
+     * @param String $german_formatted_date
+     *            e.g. 01.01.2000
+     * @return DateTime
+     */
+    public static function get_datetime_from_german_date($german_formatted_date)
+    {
+        return \DateTime::createFromFormat('d.m.Y', $german_formatted_date);
+    }
+
+    /**
      * set a given DateTime object to timezone UTC
      *
      * @param DateTime $datetime_local
@@ -80,6 +92,17 @@ class UtilDate
     public static function set_to_timezone_germany(\DateTime $datetime_timezone)
     {
         return $datetime_timezone->setTimezone(new \DateTimeZone('Europe/Berlin'));
+    }
+
+    /**
+     * get the date sql string representation of a given datetime object
+     *
+     * @param DateTime $datetime
+     * @return string|NULL
+     */
+    public static function date_to_sqlstring(\DateTime $datetime)
+    {
+        return $datetime->format('Y-m-d');
     }
 
     /**

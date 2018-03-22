@@ -22,7 +22,26 @@ class UtilUI
                         'phpDatetimeFormat' => 'yyyy-MM-dd HH:mm:ss',
                         'momentDatetimeFormat' => 'YYYY-MM-DD HH:mm:ss',
                         'clientOptions' => [
-                                'minDate' => new \yii\web\JsExpression('new Date("2015-01-01")'),
+                                'minDate' => new \yii\web\JsExpression('new Date("2008-01-01")'),
+                                'allowInputToggle' => false,
+                                'sideBySide' => true,
+                                'locale' => 'de-DE',
+                                'widgetPositioning' => [
+                                        'horizontal' => 'auto',
+                                        'vertical' => 'auto'
+                                ]
+                        ]
+                ]);
+    }
+
+    public static function getDatePickerGerman($form, $model, $attribute)
+    {
+        return $form->field($model, $attribute)->widget(DateTimeWidget::className(),
+                [
+                        'phpDatetimeFormat' => 'dd.MM.yyyy',
+                        'momentDatetimeFormat' => 'DD.MM.YYYY',
+                        'clientOptions' => [
+                                'minDate' => new \yii\web\JsExpression('new Date("2008-01-01")'),
                                 'allowInputToggle' => false,
                                 'sideBySide' => true,
                                 'locale' => 'de-DE',
