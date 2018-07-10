@@ -65,5 +65,50 @@ class UtilNumber
         
         return $value;
     }
+
+    /**
+     * get representation of a value a given number of digits containing leading zeros
+     */
+    public static function get_fix_digit_value_with_leading_zeros($value, $number_of_digits)
+    {
+        if (! is_numeric($value)) {
+            throw new \InvalidArgumentException("The input value is not a valid number.");
+        }
+        
+        if (! is_numeric($number_of_digits)) {
+            throw new \InvalidArgumentException("The input number of digits is not a valid number.");
+        }
+        
+        return sprintf('%0' . $number_of_digits . 'd', $value);
+    }
+
+    /**
+     * Get a string representation for a given number like 1 => 1st or 5 => 5th
+     */
+    public static function get_number_string($number)
+    {
+        if (! is_numeric($number)) {
+            throw new \InvalidArgumentException("The input number is not a valid numeric value.");
+        }
+        
+        $last_digit = substr($number, - 1);
+        
+        switch ($last_digit) {
+            case 1:
+                $number_string = $number . "st";
+                break;
+            case 2:
+                $number_string = $number . "nd";
+                break;
+            case 3:
+                $number_string = $number . "rd";
+                break;
+            default:
+                $number_string = $number . "th";
+                break;
+        }
+        
+        return $number_string;
+    }
 }
 ?>
