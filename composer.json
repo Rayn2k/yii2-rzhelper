@@ -1,28 +1,35 @@
 {
-    "name": "rayn2k/yii2-rzhelper",
-    "type": "yii2-extension",
-    "description": "Helper classes for RZ components",
-    "keywords": ["yii2", "helper"],
-    "license": "BSD-3-Clause",
-    "support": {
-        "issues": "https://github.com/Rayn2k/yii2-rzhelper/issues",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "source": "https://github.com/Rayn2k/yii2-rzhelper"
-    },
-    "authors": [
-        {
-            "name": "Rayn2k",
-            "email": "raynzi1@yahoo.de"
-        }
-    ],
-    "autoload" : {
-		"psr-4" : {
-			"rayn2k\\rzhelper\\" : "src/"
-		}
-	},
-   "require" : {
-		"yiisoft/yii2" : "~2.0",
-		"bower-asset/image-picker" : ">=0.3.1"
-	},
+   "name":"rayn2k/yii2-rzhelper",
+   "type":"yii2-extension",
+   "description":"Helper classes for RZ components",
+   "keywords":[
+      "yii2",
+      "helper"
+   ],
+   "license":"BSD-3-Clause",
+   "support":{
+      "issues":"https://github.com/Rayn2k/yii2-rzhelper/issues",
+      "forum":"http://www.yiiframework.com/forum/",
+      "wiki":"http://www.yiiframework.com/wiki/",
+      "source":"https://github.com/Rayn2k/yii2-rzhelper"
+   },
+   "authors":[
+      {
+         "name":"Rayn2k",
+         "email":"raynzi1@yahoo.de"
+      }
+   ],
+   "autoload":{
+      "psr-4":{
+         "rayn2k\\rzhelper\\":"src/"
+      }
+   },
+   "require":{
+      "yiisoft/yii2":"~2.0",
+      "bower-asset/image-picker":"~0.3"
+   },
+   "asset-installer-paths":{
+      "npm-asset-library":"vendor/npm",
+      "bower-asset-library":"vendor/bower"
+   }
 }
