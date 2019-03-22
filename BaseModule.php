@@ -22,8 +22,5 @@ class BaseModule extends \yii\base\Module
         parent::init();
         
         // custom initialization code goes here
-        $this->setAliases([
-                '@rz-assets' => __DIR__ . '/src/assets'
-        ]);
     }
 }
