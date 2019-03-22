@@ -23,7 +23,7 @@ class BaseModule extends \yii\base\Module
         
         // custom initialization code goes here
         $this->setAliases([
-                '@rz-assets' => __DIR__ . '/assets'
+                '@rz-assets' => __DIR__ . '/src/assets'
         ]);
     }
 }
