@@ -5,18 +5,19 @@
  * @license http://www.yiiframework.com/license/
  */
 namespace rayn2k\rzhelper\assets;
+use yii\web\AssetBundle;
 
 class ImagePickerAsset extends AssetBundle
 {
 
-    public $basePath = '@bower/image-picker';
+    public $sourcePath = '@vendor/rayn2k/yii2-rzhelper/src/assets';
 
     public $css = [
-            'image-picker.css'
+            'image-picker/image-picker.css'
     ];
 
     public $js = [
-            'image-picker.js'
+            'image-picker/image-picker.js'
     ];
 
     public $depends = [
