@@ -1,6 +1,7 @@
 <?php
 namespace rayn2k\rzhelper;
 use yii\helpers\Html;
+use yii\base\InvalidArgumentException;
 
 /**
  * helper class for all printing issues
@@ -21,10 +22,10 @@ class UtilNumber
         if (is_null($value)) {
             return Html::tag('span');
         }
-        
+
         // init
         $sign = "";
-        
+
         switch (true) {
             case $value > 0:
                 $class = "positive_value";
@@ -41,7 +42,7 @@ class UtilNumber
                 $class = "neutral_value";
                 break;
         }
-        
+
         return Html::beginTag('span', [
                 'class' => $class
         ]) . $sign . number_format($value, 2) . " €" . Html::endTag('span');
@@ -62,7 +63,7 @@ class UtilNumber
                 $value = number_format($value, 2);
             }
         }
-        
+
         return $value;
     }
 
@@ -72,13 +73,13 @@ class UtilNumber
     public static function get_fix_digit_value_with_leading_zeros($value, $number_of_digits)
     {
         if (! is_numeric($value)) {
-            throw new \InvalidArgumentException("The input value is not a valid number.");
+            throw new InvalidArgumentException("The input value is not a valid number.");
         }
-        
+
         if (! is_numeric($number_of_digits)) {
-            throw new \InvalidArgumentException("The input number of digits is not a valid number.");
+            throw new InvalidArgumentException("The input number of digits is not a valid number.");
         }
-        
+
         return sprintf('%0' . $number_of_digits . 'd', $value);
     }
 
@@ -88,11 +89,11 @@ class UtilNumber
     public static function get_number_string($number)
     {
         if (! is_numeric($number)) {
-            throw new \InvalidArgumentException("The input number is not a valid numeric value.");
+            throw new InvalidArgumentException("The input number is not a valid numeric value.");
         }
-        
+
         $last_digit = substr($number, - 1);
-        
+
         switch ($last_digit) {
             case 1:
                 $number_string = $number . "st";
@@ -107,8 +108,40 @@ class UtilNumber
                 $number_string = $number . "th";
                 break;
         }
-        
+
         return $number_string;
+    }
+
+    /**
+     * Returns true, when both given numbers has the same sign sign and false, if not.
+     *
+     * @param number $number1
+     * @param number $number2
+     * @return boolean
+     */
+    public static function has_same_sign($number1, $number2)
+    {
+        if (! is_numeric($number1)) {
+            throw new InvalidArgumentException("The input number is not a valid numeric value: " . $number1);
+        }
+
+        if (! is_numeric($number2)) {
+            throw new InvalidArgumentException("The input number is not a valid numeric value: " . $number2);
+        }
+
+        if ($number1 > 0 && $number2 > 0) {
+            return true;
+        }
+
+        if ($number1 < 0 && $number2 < 0) {
+            return true;
+        }
+
+        if ($number1 == 0 && $number2 == 0) {
+            return true;
+        }
+
+        return false;
     }
 }
 ?>
