@@ -1,7 +1,7 @@
 <?php
 namespace rayn2k\rzhelper;
-use yii\helpers\Html;
 use yii\base\InvalidArgumentException;
+use yii\helpers\Html;
 
 /**
  * helper class for all printing issues
@@ -94,19 +94,23 @@ class UtilNumber
 
         $last_digit = substr($number, - 1);
 
-        switch ($last_digit) {
-            case 1:
-                $number_string = $number . "st";
-                break;
-            case 2:
-                $number_string = $number . "nd";
-                break;
-            case 3:
-                $number_string = $number . "rd";
-                break;
-            default:
-                $number_string = $number . "th";
-                break;
+        if ($number == 11 || $number == 12 || $number == 13) {
+            $number_string = $number . "th";
+        } else {
+            switch ($last_digit) {
+                case 1:
+                    $number_string = $number . "st";
+                    break;
+                case 2:
+                    $number_string = $number . "nd";
+                    break;
+                case 3:
+                    $number_string = $number . "rd";
+                    break;
+                default:
+                    $number_string = $number . "th";
+                    break;
+            }
         }
 
         return $number_string;
