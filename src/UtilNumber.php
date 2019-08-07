@@ -17,7 +17,7 @@ class UtilNumber
      * @param $value $id
      * @return string
      */
-    public static function get_money_value($value)
+    public static function get_money_value($value, $show_positive_sign = true)
     {
         if (is_null($value)) {
             return Html::tag('span');
@@ -29,7 +29,7 @@ class UtilNumber
         switch (true) {
             case $value > 0:
                 $class = "positive_value";
-                $sign = "+";
+                $sign = $show_positive_sign ? "+" : "";
                 break;
             case $value < 0:
                 $class = "negative_value";
