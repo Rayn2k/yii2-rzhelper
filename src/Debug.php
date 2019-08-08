@@ -95,7 +95,7 @@ class Debug
      *
      * @param string $sql
      */
-    public static function print_sql($sql)
+    public static function print_sql_output($sql)
     {
         $command = Yii::$app->getDb()->createCommand($sql);
 
@@ -113,7 +113,7 @@ class Debug
             echo "<tr>";
             foreach ($entries as $entry) {
                 echo "<td style='border: 1px solid black; padding: 3px;'>";
-                echo $entry;
+                echo is_null($entry) ? "<span style='color:red'>NULL</span>" : $entry;
                 echo "</td>";
             }
             echo "</tr>";
