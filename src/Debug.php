@@ -1,6 +1,6 @@
 <?php
 namespace rayn2k\rzhelper;
-use yii\helpers\BaseVarDumper;
+use Yii;
 
 /**
  *
@@ -23,7 +23,7 @@ class Debug
     {
         // get variables to dump
         $args = func_get_args();
-        
+
         // loop through all items to output
         foreach ($args as $arg) {
             self::dump($arg);
@@ -41,16 +41,16 @@ class Debug
      */
     public static function dump_inline($variable, $caption = null)
     {
-        
+
         // start the output buffering
         ob_start();
-        
+
         // generate the output
         var_dump($variable);
-        
+
         // get the output
         $output = ob_get_clean();
-        
+
         $maps = array(
                 'string' => '/(string\((?P<length>\d+)\)) (?P<value>\"(?<!\\\).*\")/i',
                 'array' => '/\[\"(?P<key>.+)\"(?:\:\"(?P<class>[a-z0-9_\\\]+)\")?(?:\:(?P<scope>public|protected|private))?\]=>/Ui',
@@ -60,20 +60,19 @@ class Debug
                 'float' => '/float\((?P<value>[0-9\.]+)\)/',
                 'object' => '/object\((?P<class>[a-z_\\\]+)\)\#(?P<id>\d+) \((?P<count>\d+)\)/i'
         );
-        
+
         foreach ($maps as $function => $pattern) {
-            $output = preg_replace_callback($pattern,
-                    array(
-                            'self',
-                            '_process' . ucfirst($function)
-                    ), $output);
+            $output = preg_replace_callback($pattern, array(
+                    'self',
+                    '_process' . ucfirst($function)
+            ), $output);
         }
-        
+
         $header = '';
         if (! empty($caption)) {
             $header = '<h2 style="' . self::_getHeaderCss() . '">' . $caption . '</h2>';
         }
-        
+
         return '<pre style="' . self::_getContainerCss() . '">' . $header . $output . '</pre>';
     }
 
@@ -92,6 +91,38 @@ class Debug
     }
 
     /**
+     * Dump the output of an SQL query.
+     *
+     * @param string $sql
+     */
+    public static function print_sql($sql)
+    {
+        $command = Yii::$app->getDb()->createCommand($sql);
+
+        echo "<br><br>";
+
+        echo "<table style='border: 1px solid black;'>";
+        echo "<tr>";
+        foreach ($command->queryOne() as $key => $value) {
+            echo "<th style='border: 1px solid black; padding: 3px;'>";
+            echo $key . "&nbsp;&nbsp;&nbsp;";
+            echo "</th>";
+        }
+        echo "</tr>";
+        foreach ($command->queryAll() as $entries) {
+            echo "<tr>";
+            foreach ($entries as $entry) {
+                echo "<td style='border: 1px solid black; padding: 3px;'>";
+                echo $entry;
+                echo "</td>";
+            }
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    }
+
+    /**
      * Process strings
      *
      * @param array $matches
@@ -102,7 +133,7 @@ class Debug
     {
         $matches['value'] = htmlspecialchars($matches['value']);
         return '<span style="color: #0000FF;">string</span>(<span style="color: #1287DB;">' . $matches['length'] .
-                 ')</span> <span style="color: #6B6E6E;">' . $matches['value'] . '</span>';
+                ')</span> <span style="color: #6B6E6E;">' . $matches['value'] . '</span>';
     }
 
     /**
@@ -118,17 +149,17 @@ class Debug
         $key = '<span style="color: #008000;">"' . $matches['key'] . '"</span>';
         $class = '';
         $scope = '';
-        
+
         // prepare the parent class name
         if (isset($matches['class']) && ! empty($matches['class'])) {
             $class = ':<span style="color: #4D5D94;">"' . $matches['class'] . '"</span>';
         }
-        
+
         // prepare the scope indicator
         if (isset($matches['scope']) && ! empty($matches['scope'])) {
             $scope = ':<span style="color: #666666;">' . $matches['scope'] . '</span>';
         }
-        
+
         // return the final string
         return '[' . $key . $class . $scope . ']=>';
     }
@@ -144,7 +175,7 @@ class Debug
     {
         $type = '<span style="color: #0000FF;">' . $matches['type'] . '</span>';
         $count = '(<span style="color: #1287DB;">' . $matches['count'] . '</span>)';
-        
+
         return $type . $count;
     }
 
@@ -182,7 +213,7 @@ class Debug
     private static function _processResource(array $matches)
     {
         return '<span style="color: #0000FF;">resource</span>(<span style="color: #1287DB;">' . $matches['count'] .
-                 '</span>) of type (<span style="color: #4D5D94;">' . $matches['class'] . '</span>)';
+                '</span>) of type (<span style="color: #4D5D94;">' . $matches['class'] . '</span>)';
     }
 
     /**
@@ -195,7 +226,7 @@ class Debug
     private static function _processObject(array $matches)
     {
         return '<span style="color: #0000FF;">object</span>(<span style="color: #4D5D94;">' . $matches['class'] . '</span>)#' .
-                 $matches['id'] . ' (<span style="color: #1287DB;">' . $matches['count'] . '</span>)';
+                $matches['id'] . ' (<span style="color: #1287DB;">' . $matches['count'] . '</span>)';
     }
 
     /**
@@ -246,11 +277,11 @@ class Debug
     private static function _arrayToCss(array $rules)
     {
         $strings = array();
-        
+
         foreach ($rules as $key => $value) {
             $strings[] = $key . ': ' . $value;
         }
-        
+
         return join('; ', $strings);
     }
 }
