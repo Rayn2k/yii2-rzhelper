@@ -147,5 +147,21 @@ class UtilNumber
 
         return false;
     }
+
+    /**
+     * Set a highlighted format for the number.
+     *
+     * @param number $number
+     */
+    public static function highlight($number)
+    {
+        if (! is_numeric($number)) {
+            throw new InvalidArgumentException("The input number is not a valid numeric value.");
+        }
+
+        $response = "<span style='font-weight: bold;'>" . $number . "</span>";
+
+        return $response;
+    }
 }
 ?>
