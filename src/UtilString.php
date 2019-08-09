@@ -19,14 +19,14 @@ class UtilString extends StringHelper
      */
     public static function get_string_without_prefix($string, $prefix)
     {
-        
+
         // TODO: distinguish between prefix at the beginning and in between
-        
+
         // case prefix is not included
         if (strpos($string, $prefix) === false) {
             return $string;
         }
-        
+
         return mb_substr($string, strlen($prefix), strlen($string), 'UTF-8');
     }
 
@@ -39,14 +39,14 @@ class UtilString extends StringHelper
      */
     public static function get_string_without_suffix($string, $suffix)
     {
-        
+
         // TODO: distinguish between prefix at the beginning and in between
-        
+
         // case prefix is not included
         if (strpos($string, $suffix) === false) {
             return $string;
         }
-        
+
         return mb_substr($string, 0, strlen($string) - strlen($suffix), 'UTF-8');
     }
 
@@ -62,9 +62,9 @@ class UtilString extends StringHelper
         if (strrpos($string, $needle) === false) {
             return $string;
         }
-        
+
         $pos = strrpos($string, $needle);
-        
+
         return mb_substr($string, 0, $pos, 'UTF-8');
     }
 
@@ -80,9 +80,9 @@ class UtilString extends StringHelper
         if (strrpos($string, $needle) === false) {
             return $string;
         }
-        
+
         $pos = strrpos($string, $needle);
-        
+
         return mb_substr($string, $pos, strlen($string), 'UTF-8');
     }
 
@@ -99,7 +99,7 @@ class UtilString extends StringHelper
         $text_after_delimiter1 = $parts[1];
         $parts = explode($delimiter2, $text_after_delimiter1);
         $text_before_delimiter2 = $parts[0];
-        
+
         return $text_before_delimiter2;
     }
 
@@ -141,18 +141,18 @@ class UtilString extends StringHelper
         if (strrpos($text, $delimiter) === false) {
             return null;
         }
-        
+
         // init
         $return_parts = array();
-        
+
         // split into parts
         $text_parts = explode($delimiter, $text);
-        
+
         // remove whitespaces
         foreach ($text_parts as $part) {
             $return_parts[] = trim($part);
         }
-        
+
         return $return_parts;
     }
 
@@ -194,7 +194,7 @@ class UtilString extends StringHelper
     {
         // Replaces all spaces with underscores.
         $string = str_replace(' ', '_', $string);
-        
+
         // Removes special chars.
         return preg_replace('/[^A-Za-z0-9\-_]/', '', $string);
     }
@@ -247,6 +247,18 @@ class UtilString extends StringHelper
     public static function is_empty($text)
     {
         return static::equals_ignore_case(trim($text), '');
+    }
+
+    /**
+     * Set a highlighted format for the text.
+     *
+     * @param string $text
+     */
+    public static function highlight($text)
+    {
+        $response = "<span style='font-weight: bold;'>" . $text . "</span>";
+
+        return $response;
     }
 }
 
