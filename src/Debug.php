@@ -98,12 +98,24 @@ class Debug
     public static function print_sql_output($sql)
     {
         $command = Yii::$app->getDb()->createCommand($sql);
+        $row_for_headers = $command->queryOne();
 
         echo "<br><br>";
 
+        // in case there is no entry, return a specific table and return
+        if ($row_for_headers === false) {
+            echo "<table style='border: 1px solid black;'><tr><td style='border: 1px solid black; padding: 3px;'>";
+            echo "<span style='color:red'>EMPTY TABLE</span>";
+            echo "</td><tr></table>";
+            return;
+        }
+
+        // detect header names
+        $keys = array_keys($row_for_headers);
+
         echo "<table style='border: 1px solid black;'>";
         echo "<tr>";
-        foreach ($command->queryOne() as $key => $value) {
+        foreach ($keys as $key) {
             echo "<th style='border: 1px solid black; padding: 3px;'>";
             echo $key . "&nbsp;&nbsp;&nbsp;";
             echo "</th>";
