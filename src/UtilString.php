@@ -1,6 +1,7 @@
 <?php
 namespace rayn2k\rzhelper;
 use yii\helpers\StringHelper;
+use yii\helpers\Html;
 
 /**
  * utility class to handle several string operations
@@ -256,9 +257,9 @@ class UtilString extends StringHelper
      */
     public static function highlight($text)
     {
-        $response = "<span style='font-weight: bold;'>" . $text . "</span>";
-
-        return $response;
+        return Html::beginTag('span', [
+                'style' => 'font-weight: bold;'
+        ]) . text . Html::endTag('span');
     }
 }
 
