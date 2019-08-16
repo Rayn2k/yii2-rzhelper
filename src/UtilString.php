@@ -1,7 +1,8 @@
 <?php
 namespace rayn2k\rzhelper;
-use yii\helpers\StringHelper;
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
+use function yii\helpers\BaseStringHelper\explode;
 
 /**
  * utility class to handle several string operations
@@ -259,7 +260,7 @@ class UtilString extends StringHelper
     {
         return Html::beginTag('span', [
                 'style' => 'font-weight: bold;'
-        ]) . text . Html::endTag('span');
+        ]) . $text . Html::endTag('span');
     }
 }
 
