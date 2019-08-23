@@ -184,5 +184,17 @@ class UtilNumber
 
         return false;
     }
+
+    /**
+     * Return the round number with given precision.
+     *
+     * @param number $number
+     * @param integer $precision
+     * @return number
+     */
+    public static function round($number, $precision)
+    {
+        return round($number, 2);
+    }
 }
 ?>
