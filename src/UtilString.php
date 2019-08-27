@@ -2,7 +2,6 @@
 namespace rayn2k\rzhelper;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
-use function yii\helpers\BaseStringHelper\explode;
 
 /**
  * utility class to handle several string operations
