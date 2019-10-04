@@ -10,7 +10,7 @@ class UtilDate
     /**
      * get the utc time for default time zone for the actual time
      *
-     * @return DateTime
+     * @return \DateTime
      */
     public static function get_actual_utc()
     {
@@ -31,7 +31,7 @@ class UtilDate
     /**
      * get the utc time for default time zone for the actual time as LONG representation
      *
-     * @return long
+     * @return integer
      */
     public static function get_actual_utc_long()
     {
@@ -41,8 +41,8 @@ class UtilDate
     /**
      * get the datetime representation of a given long timestamp
      *
-     * @param long $timestamp
-     * @return DateTime
+     * @param integer $timestamp
+     * @return \DateTime
      */
     public static function get_utc_datetime_from_long($timestamp)
     {
@@ -54,7 +54,7 @@ class UtilDate
      *
      * @param String $german_formatted_date
      *            e.g. 01.01.2000
-     * @return DateTime
+     * @return \DateTime
      */
     public static function get_datetime_from_german_date($german_formatted_date)
     {
@@ -64,8 +64,8 @@ class UtilDate
     /**
      * set a given DateTime object to timezone UTC
      *
-     * @param DateTime $datetime_local
-     * @return DateTime
+     * @param \DateTime $datetime_local
+     * @return \DateTime
      */
     public static function set_to_timezone_utc(\DateTime $datetime_timezone)
     {
@@ -75,8 +75,8 @@ class UtilDate
     /**
      * set a given DateTime object to timezone from server default
      *
-     * @param DateTime $datetime_local
-     * @return DateTime
+     * @param \DateTime $datetime_local
+     * @return \DateTime
      */
     public static function set_to_timezone_server_default(\DateTime $datetime_timezone)
     {
@@ -86,8 +86,8 @@ class UtilDate
     /**
      * set a given DateTime object to german timezone
      *
-     * @param DateTime $datetime_local
-     * @return DateTime
+     * @param \DateTime $datetime_local
+     * @return \DateTime
      */
     public static function set_to_timezone_germany(\DateTime $datetime_timezone)
     {
@@ -97,7 +97,7 @@ class UtilDate
     /**
      * get the date sql string representation of a given datetime object
      *
-     * @param DateTime $datetime
+     * @param \DateTime $datetime
      * @return string|NULL
      */
     public static function date_to_sqlstring(\DateTime $datetime)
@@ -108,7 +108,7 @@ class UtilDate
     /**
      * get the sql string representation of a given datetime object
      *
-     * @param DateTime $datetime
+     * @param \DateTime $datetime
      * @return string|NULL
      */
     public static function datetime_to_sqlstring(\DateTime $datetime)
@@ -119,7 +119,7 @@ class UtilDate
     /**
      * set to utc timezone and get the sql string representation of a given datetime object
      *
-     * @param DateTime $datetime
+     * @param \DateTime $datetime
      * @return string|NULL
      */
     public static function datetime_to_sqlstring_utc(\DateTime $datetime)
@@ -130,8 +130,8 @@ class UtilDate
     /**
      * get the LONG representation of a given datetime object
      *
-     * @param DateTime $datetime
-     * @return long
+     * @param \DateTime $datetime
+     * @return integer
      */
     public static function datetime_to_long(\DateTime $datetime)
     {
@@ -142,7 +142,7 @@ class UtilDate
      * get the datetime object in utc by a given sql string representation
      *
      * @param string $datetime
-     * @return DateTime
+     * @return \DateTime
      */
     public static function sqlstring_to_datetime_utc($datetime_sql_string)
     {
@@ -153,7 +153,7 @@ class UtilDate
      * get the datetime object in the server default timezone by a given sql string representation
      *
      * @param string $datetime
-     * @return DateTime
+     * @return \DateTime
      */
     public static function sqlstring_to_datetime_serverdefault($datetime_sql_string)
     {
@@ -165,13 +165,13 @@ class UtilDate
      *
      *
      * @param string $datetime
-     * @return DateTime
+     * @return \DateTime
      */
     public static function get_day_name(\DateTime $dateTime)
     {
         // number for ISO-8601
         $dayNumber = $dateTime->format('N');
-        
+
         $dayNames = [
                 1 => Yii::t('app', 'Monday'),
                 2 => Yii::t('app', 'Tuesday'),
@@ -181,7 +181,7 @@ class UtilDate
                 6 => Yii::t('app', 'Saturday'),
                 7 => Yii::t('app', 'Sunday')
         ];
-        
+
         return $dayNames[$dayNumber];
     }
 
@@ -190,13 +190,13 @@ class UtilDate
      *
      *
      * @param string $datetime
-     * @return DateTime
+     * @return \DateTime
      */
     public static function get_day_name_short(\DateTime $dateTime)
     {
         // number for ISO-8601
         $dayNumber = $dateTime->format('N');
-        
+
         $dayNames = [
                 1 => Yii::t('app', 'Mon'),
                 2 => Yii::t('app', 'Tue'),
@@ -206,7 +206,7 @@ class UtilDate
                 6 => Yii::t('app', 'Sat'),
                 7 => Yii::t('app', 'Sun')
         ];
-        
+
         return $dayNames[$dayNumber];
     }
 
