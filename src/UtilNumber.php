@@ -49,43 +49,6 @@ class UtilNumber
     }
 
     /**
-     * get representation of a value
-     *
-     * @param $value $id
-     * @return string
-     */
-    public static function get_points_value($value, $show_positive_sign = true)
-    {
-        if (is_null($value)) {
-            return Html::tag('span');
-        }
-
-        // init
-        $sign = "";
-
-        switch (true) {
-            case $value > 0:
-                $class = "positive_value";
-                $sign = $show_positive_sign ? "+" : "";
-                break;
-            case $value < 0:
-                $class = "negative_value";
-                break;
-            case $value == null:
-                return ConstantsGeneral::SIGN_NOT_AVAILABLE;
-                break;
-            case $value == 0:
-            default:
-                $class = "neutral_value";
-                break;
-        }
-
-        return Html::beginTag('span', [
-                'class' => $class
-        ]) . $sign . $value . Html::endTag('span');
-    }
-
-    /**
      * get representation of a value with 2 digits
      *
      * @param $value $id

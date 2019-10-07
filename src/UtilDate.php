@@ -222,6 +222,17 @@ class UtilDate
     }
 
     /**
+     * get the german representation of a date showing only day and month.
+     *
+     * @param string $datetime
+     * @return String
+     */
+    public static function get_formatted_date_german_without_year(\DateTime $dateTime)
+    {
+        return $dateTime->format('d.m.');
+    }
+
+    /**
      * get the german representation of a time
      *
      * @param string $datetime
