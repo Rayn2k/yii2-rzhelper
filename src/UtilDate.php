@@ -222,6 +222,17 @@ class UtilDate
     }
 
     /**
+     * get the german representation of a date with the year representation in 2 digits.
+     *
+     * @param string $datetime
+     * @return String
+     */
+    public static function get_formatted_date_german_2_digit_year(\DateTime $dateTime)
+    {
+        return $dateTime->format('d.m.y');
+    }
+
+    /**
      * get the german representation of a date showing only day and month.
      *
      * @param string $datetime
