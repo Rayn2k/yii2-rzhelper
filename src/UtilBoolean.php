@@ -22,7 +22,7 @@ class UtilBoolean
         if (is_numeric($bool_value)) {
             $bool_value = $bool_value == 1 ? true : false;
         }
-        
+
         if ($bool_value == true) {
             return Yii::t('app', 'true');
         } else {
@@ -42,12 +42,23 @@ class UtilBoolean
         if (is_numeric($bool_value)) {
             $bool_value = $bool_value == 1 ? true : false;
         }
-        
+
         if ($bool_value == true) {
             return "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span>";
         } else {
             return "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span>";
         }
+    }
+
+    /**
+     * Convert the string into boolean.
+     *
+     * @param string $bool_string
+     * @return boolean
+     */
+    public static function get_bool_from_string($bool_string)
+    {
+        return UtilString::equals_ignore_case($bool_string, "true") ? true : false;
     }
 }
 ?>
