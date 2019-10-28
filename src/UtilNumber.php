@@ -28,18 +28,18 @@ class UtilNumber
 
         switch (true) {
             case $value > 0:
-                $class = "positive_value";
+                $class = "color-positive";
                 $sign = $show_positive_sign ? "+" : "";
                 break;
             case $value < 0:
-                $class = "negative_value";
+                $class = "color-negative";
                 break;
             case $value == null:
                 return ConstantsGeneral::SIGN_NOT_AVAILABLE;
                 break;
             case $value == 0:
             default:
-                $class = "neutral_value";
+                $class = "color-neutral";
                 break;
         }
 
