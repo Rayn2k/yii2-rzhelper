@@ -261,6 +261,36 @@ class UtilString extends StringHelper
                 'style' => 'font-weight: bold;'
         ]) . $text . Html::endTag('span');
     }
+
+    /**
+     * Get a (e.g.
+     * comma-separated) string out of an array.
+     *
+     * @param string[] $string_array
+     * @param string $delimiter
+     * @return string
+     *
+     * @formatter:off
+     * [
+     *   AA
+     *   BB
+     *   CC
+     * ]
+     *  ==> "AA, BB, CC"
+     * @formatter:on
+     */
+    public static function get_string_from_array($string_array, $delimiter)
+    {
+        $result = "";
+
+        for ($i = 0; $i < sizeof($string_array); $i ++) {
+            $string = $string_array[$i];
+            $result .= $i > 0 ? $delimiter : "";
+            $result .= $string;
+        }
+
+        return $result;
+    }
 }
 
 ?>
