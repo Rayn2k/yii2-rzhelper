@@ -97,10 +97,17 @@ class UtilString extends StringHelper
     public static function get_string_between_delimiters($text, $delimiter1, $delimiter2, $show = false)
     {
         $parts = explode($delimiter1, $text);
+        if (!is_array($parts)){
+            return $text;
+        }
+        
         $text_after_delimiter1 = $parts[1];
         $parts = explode($delimiter2, $text_after_delimiter1);
+        if (!is_array($parts)){
+            return $text_after_delimiter1;
+        }
+        
         $text_before_delimiter2 = $parts[0];
-
         return $text_before_delimiter2;
     }
 
